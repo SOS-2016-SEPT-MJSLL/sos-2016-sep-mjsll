@@ -1,0 +1,23 @@
+{
+  "name": "mjose",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SOS-2016-SEPT-MJSLL/sos-2016-sep-mjsll.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SOS-2016-SEPT-MJSLL/sos-2016-sep-mjsll/issues"
+  },
+  "homepage": "https://github.com/SOS-2016-SEPT-MJSLL/sos-2016-sep-mjsll#readme",
+  "dependencies": {
+    "express": "^4.14.0"
+  }
+}
