@@ -1,15 +1,33 @@
 var express = require("express");
-var bodyParser = require("body-parser");//Para no tener que parsear el código
+//var bodyParser = require("body-parser");//Para no tener que parsear el código
 //var contactctl = require("./contactsctl.js");
 var port = (process.env.PORT || 10000);
 var app = express();
 
-app.use(bodyParser.json());//Para que la aplicación use el bodyParser
+app.get("/",(req,res) => {
+var r = "<html><style>A:link {color:#FF00FF;}</style>"+
+"<body>"+"<a href='/about'>About me</a>"
+res.send(r);
+});
+
+// app.get("/about",(req,res) => {
+//   var r = "<html><style>h1 {color:#FF00FF; font-family: Comic Sans MS;} p{color:black; font-family:Comic Sans MS; font-weight:700;} A:link {color:#FF00FF;}</style><head><h1>sos-2016-sep-mjsll</h1></head>"+
+//   "<body>"+
+//   "<p>Maria José Sosa Llorca: bestsellermusic</p> </br> <a href='https://es.wikipedia.org/wiki/Anexo:%C3%81lbumes_musicales_m%C3%A1s_vendidos'> Original data link </a>"+"</br>"+
+//   "<a href='/about/bestsellermusic'>Data link on Page</a> <br>"
+//   res.send(r);
+// });
+
+app.use("/about", express.static('./static/soslinks1.html'));
+º
+app.use("/about/bestsellermusic",express.static('./static/sos.html'));
+
+//app.use(bodyParser.json());//Para que la aplicación use el bodyParser
 
 app.listen(port);
 
 
-//var apimjose = require('./lib/api-mjose/films');
+//var apimjose = require('sos');
 //app.use(apimjose)
 
 //var basketb = require('./lib/api-mjose/basketball');
