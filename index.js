@@ -1,7 +1,6 @@
 var express = require("express");
 //var bodyParser = require("body-parser");//Para no tener que parsear el código
 //var contactctl = require("./contactsctl.js");
-var port = (process.env.PORT || 10000);
 var app = express();
 
 app.get("/",(req,res) => {
@@ -19,13 +18,12 @@ res.send(r);
 // });
 
 app.use("/about", express.static('./static/soslinks1.html'));
-º
 app.use("/about/bestsellermusic",express.static('./static/sos.html'));
 
 //app.use(bodyParser.json());//Para que la aplicación use el bodyParser
-
+var port = (process.env.PORT || 10000);
 app.listen(port);
-
+console.log(port);
 
 //var apimjose = require('sos');
 //app.use(apimjose)
