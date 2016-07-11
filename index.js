@@ -19,6 +19,7 @@ res.send(r);
 
 app.use("/about", express.static('./static/soslinks1.html'));
 app.use("/about/bestsellermusic",express.static('./static/sos.html'));
+app.use("/about/clientJSON",express.static('./static/clientJSON.html'));
 
 //app.use(bodyParser.json());//Para que la aplicación use el bodyParser
 var port = (process.env.PORT || 10000);

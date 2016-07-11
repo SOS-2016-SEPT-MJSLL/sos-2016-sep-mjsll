@@ -1,0 +1,45 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<style>
+h1 {color:#FF00FF; font-family: Comic Sans MS;}
+h3 {color:#FF00FF; font-family: Comic Sans MS;}
+p {color: black; font-family: Comic Sans MS; font-weight: 700;}
+table th {background-color: yellow;}
+table tr:nth-child(odd) {background-color: #CC66CC;}
+table tr:nth-child(even) {background-color: pink;}
+A:link {color:#FF00FF;}
+</style>
+<script   src="/js/jquery-2.2.3.min.js"></script>
+<script   src="/js/clientjson-0.1.js"></script>
+
+
+
+
+</head>
+<body>
+	<h1>JQUERY REST CLIENT</h1>
+	<p>Request: <input  placeholder="Escriba su petición" type="text" class="textbox" id="url" size="50" value=""/> &nbsp;
+	Choose an operation:
+	GET <input name="method" type="radio" id="GET" checked="checked"/>
+	POST <input name="method" type="radio" id="POST" />
+	PUT <input name="method" type="radio" id="PUT" />
+	DELETE <input name="method" type="radio" id="DELETE" />
+	<br/>
+	Payload: <input id="payload" size="50"/>
+	<br/><br/>
+	<button type="button" id="button"> SEND </button>
+	<br/><hr/>
+	<h3>Code Status</h3>
+	<p>HTTP Status: <span id="status"></span>
+	<span id="codestatus"></span>
+	<h3>Response</h3>
+	<hr/>
+	<span id="data"></span>
+	<br/><hr/>
+	<ul id="list">
+	</ul>
+	<hr/>
+	<p>Log: <span id="log"></span>
+</body>
+</html>
