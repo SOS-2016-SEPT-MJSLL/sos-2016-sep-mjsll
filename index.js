@@ -5,7 +5,7 @@ var app = express();
 
 app.get("/",(req,res) => {
 var r = "<html><style>A:link {color:#FF00FF;font-family: Comic Sans MS;}</style>"+
-"<body bgcolor='#CDFFFF'>"+"<p align='center'><font size=7><a href='/about'>About me</a>"+"</br>"+"<a href='/time'>Time</a>"
+"<body background= 'http://img0.es.ndsstatic.com/wallpapers/c729ef940559b4a01ab38c4c0c608c54_large.jpeg'>"+"<p align='center'><font size=7><a href='/about'>About me</a>"+"</br>"+"<a href='/time'>Time</a>"
 res.send(r);
 });
 
@@ -16,7 +16,7 @@ res.send(r);
 //   "<a href='/about/bestsellermusic'>Data link on Page</a> <br>"
 //   res.send(r);
 // });
-
+//app.use("/about2", express.static('./images/musica.jpg'));
 app.use("/about", express.static('./static/soslinks1.html'));
 app.get("/time",(req,res) => {
 var date = "<html><style>h1 {color:#FF00FF; font-family: Comic Sans MS;}</style><h1>This is dynamic resourse that show the actual time:</html> </br></br>" +new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');
