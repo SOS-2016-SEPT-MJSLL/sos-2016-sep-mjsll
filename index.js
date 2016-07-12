@@ -4,8 +4,8 @@ var express = require("express");
 var app = express();
 
 app.get("/",(req,res) => {
-var r = "<html><style>A:link {color:#FF00FF;}</style>"+
-"<body>"+"<a href='/about'>About me</a>"
+var r = "<html><style>A:link {color:#FF00FF;font-family: Comic Sans MS;}</style>"+
+"<body bgcolor='#CDFFFF'>"+"<p align='center'><font size=7><a href='/about'>About me</a>"+"</br>"+"<a href='/time'>Time</a>"
 res.send(r);
 });
 
@@ -18,9 +18,13 @@ res.send(r);
 // });
 
 app.use("/about", express.static('./static/soslinks1.html'));
+app.get("/time",(req,res) => {
+var date = "<html><style>h1 {color:#FF00FF; font-family: Comic Sans MS;}</style><h1>This is dynamic resourse that show the actual time:</html> </br></br>" +new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');
+res.send(date);
+});
 app.use("/about/bestsellermusic",express.static('./static/sos.html'));
-app.use("/about/clientJSON",express.static('./static/clientJSON.html'));
-
+//app.use("/clientJSON", express.static(__dirname+'/static/clientJSON.html'));
+app.use("/clientJSON",express.static('./static/clientJSON.html'));
 //app.use(bodyParser.json());//Para que la aplicación use el bodyParser
 var port = (process.env.PORT || 10000);
 app.listen(port);
