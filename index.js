@@ -1,40 +1,25 @@
 var express = require("express");
-//var bodyParser = require("body-parser");//Para no tener que parsear el código
-//var contactctl = require("./contactsctl.js");
+var bodyParser = require("body-parser");//Para no tener que parsear el código
 var app = express();
-
 app.get("/",(req,res) => {
 var r = "<html><style>A:link {color:#FF00FF;font-family: Comic Sans MS;}</style>"+
 "<body background= 'http://img0.es.ndsstatic.com/wallpapers/c729ef940559b4a01ab38c4c0c608c54_large.jpeg'>"+"<p align='center'><font size=7><a href='/about'>About me</a>"+"</br>"+"<a href='/time'>Time</a>"
 res.send(r);
 });
-
-// app.get("/about",(req,res) => {
-//   var r = "<html><style>h1 {color:#FF00FF; font-family: Comic Sans MS;} p{color:black; font-family:Comic Sans MS; font-weight:700;} A:link {color:#FF00FF;}</style><head><h1>sos-2016-sep-mjsll</h1></head>"+
-//   "<body>"+
-//   "<p>Maria José Sosa Llorca: bestsellermusic</p> </br> <a href='https://es.wikipedia.org/wiki/Anexo:%C3%81lbumes_musicales_m%C3%A1s_vendidos'> Original data link </a>"+"</br>"+
-//   "<a href='/about/bestsellermusic'>Data link on Page</a> <br>"
-//   res.send(r);
-// });
-//app.use("/about2", express.static('./images/musica.jpg'));
 app.use("/about", express.static('./static/soslinks1.html'));
 app.get("/time",(req,res) => {
 var date = "<html><style>h1 {color:#FF00FF; font-family: Comic Sans MS;}</style><h1>This is dynamic resourse that show the actual time:</html> </br></br>" +new Date().toISOString().replace(/T/, ' ').replace(/\..+/, '');
 res.send(date);
 });
 app.use("/about/bestsellermusic",express.static('./static/sos.html'));
-//app.use("/clientJSON", express.static(__dirname+'/static/clientJSON.html'));
 app.use("/clientJSON",express.static('./static/clientJSON.html'));
-//app.use(bodyParser.json());//Para que la aplicación use el bodyParser
-var port = (process.env.PORT || 10000);
+
+var music = require('./api/bestsellermusic');
+app.use(music);
+
+var port = (process.env.PORT || 10001);
 app.listen(port);
 console.log(port);
-
-//var apimjose = require('sos');
-//app.use(apimjose)
-
-//var basketb = require('./lib/api-mjose/basketball');
-//app.use(basketb);
 
 //app.use("/about/ncaabasketball", express.static(__dirname+'/static/ncaabasketball.html'));
 
